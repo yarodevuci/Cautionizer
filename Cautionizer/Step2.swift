@@ -27,8 +27,6 @@ class Step2: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        virtualProgress.image = UIImage(named: "p2")
-        
         
         viewWithSubBtns.hidden = true
     }
@@ -39,33 +37,31 @@ class Step2: UIViewController {
         
     }
     
+    @IBAction func sub1Clicked(sender: AnyObject) {
+        viewWithSubBtns.hidden = true
+        btn2.hidden = true
+        btn3.hidden = true
+        btn1.hidden = true
+    }
     @IBAction func btnClicked(sender: AnyObject) {
         
         if (!open) {
         
             self.moveBTN()
             self.viewWithSubBtns.hidden = false
-           
             open = true
-            
         }
         else {
             open = false
 
             viewWithSubBtns.hidden = true
-         //   virtualProgress.image = UIImage(named: "p2")
-            
             btn2.frame.origin = CGPoint(x: 10, y: 200)
             btn3.frame.origin = CGPoint(x: 10, y: 270)
-            
         }
-        
     }
     @IBAction func btn2Clicked(sender: AnyObject) {
         open = false
         viewWithSubBtns.hidden = true
-
-        virtualProgress.image = UIImage(named: "p2")
         btn2.frame.origin = CGPoint(x: 10, y: 200)
         btn3.frame.origin = CGPoint(x: 10, y: 270)
         
