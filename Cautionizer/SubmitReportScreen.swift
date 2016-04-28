@@ -188,7 +188,7 @@ class SubmitReportScreen: UIViewController, UIImagePickerControllerDelegate, UIN
         dateFormatter.locale = NSLocale.currentLocale()
         dateFormatter.AMSymbol = "AM"
         dateFormatter.PMSymbol = "PM"
-        dateFormatter.dateFormat = "MM-dd-yy, HH:mma"
+        dateFormatter.dateFormat = "MM-dd-yy, hh:mma"
         let convertedDate = dateFormatter.stringFromDate(timeStamp)
         
         
