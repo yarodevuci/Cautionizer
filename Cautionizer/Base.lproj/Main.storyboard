@@ -606,7 +606,7 @@
                                             <color key="titleColor" red="0.75350980420000002" green="0.28298029050000001" blue="0.26340964820000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="addImageButton:" destination="7eX-8d-37g" eventType="touchUpInside" id="CeN-JN-G75"/>
+                                            <action selector="addImageButtonAction:" destination="7eX-8d-37g" eventType="touchUpInside" id="KB4-Nb-We3"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Location" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="seu-gz-hca">
@@ -715,7 +715,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="addImageButton" destination="8MB-yb-25T" id="p4a-7G-HsT"/>
+                        <outlet property="addImageButton" destination="8MB-yb-25T" id="gGQ-tR-qbe"/>
                         <outlet property="backgroundImage" destination="KUh-HG-a0l" id="m2U-Lw-nd2"/>
                         <outlet property="descriptionField" destination="Sj0-yS-idx" id="Pfs-Lm-SL2"/>
                         <outlet property="hazardImage" destination="UbT-fc-tNl" id="HWT-eK-LbO"/>

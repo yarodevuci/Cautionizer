@@ -24,13 +24,38 @@ class SubmitReportScreen: UIViewController, UIImagePickerControllerDelegate, UIN
     
     var locationManager = CLLocationManager()
     
-    @IBAction func addImageButton(sender: AnyObject) {
+    
+    @IBAction func addImageButtonAction(sender: AnyObject) {
+        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         
+        let deleteAction = UIAlertAction(title: "Take a Photo", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.choosingImageSource(.Camera)
+            
+        })
+        let saveAction = UIAlertAction(title: "Photo Library", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.choosingImageSource(.SavedPhotosAlbum)
+            
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+        })
+
+        optionMenu.addAction(deleteAction)
+        optionMenu.addAction(saveAction)
+        optionMenu.addAction(cancelAction)
+    
+        self.presentViewController(optionMenu, animated: true, completion: nil)
+    }
+    
+    func choosingImageSource(source: UIImagePickerControllerSourceType) {
         let myPickerController = UIImagePickerController()
         myPickerController.delegate = self;
         myPickerController.sourceType = .PhotoLibrary
-        myPickerController.sourceType = .Camera
-
+      //  myPickerController.sourceType = .Camera
+        
         myPickerController.allowsEditing = false
         self.presentViewController(myPickerController, animated: true, completion: nil)
         view.endEditing(true)
@@ -41,11 +66,6 @@ class SubmitReportScreen: UIViewController, UIImagePickerControllerDelegate, UIN
         hazardImage.image = info [UIImagePickerControllerOriginalImage] as? UIImage
         self.dismissViewControllerAnimated(true, completion: nil)
         
-    
-//        activityIndicatorView.transform = CGAffineTransformMakeScale(1.5, 1.5)
-//        activityIndicatorView.startAnimating()
-       
-       
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -58,18 +78,15 @@ class SubmitReportScreen: UIViewController, UIImagePickerControllerDelegate, UIN
             }
             if placemarks?.count > 0 {
                 
-                
                 self.locationManager.stopUpdatingLocation()
                 let placeMark  = placemarks![0]
                 
                 // Street address
                 if let street = placeMark.addressDictionary!["Street"] as? NSString {
                     if let city = placeMark.addressDictionary!["City"] as? NSString {
-                        var loc: String = ((street as String) + ", " + (city as String))
+                        let loc: String = ((street as String) + ", " + (city as String))
                 self.locationTextField.text = loc
                     }
-            
-                    
                 }
         }
         })
@@ -84,8 +101,6 @@ class SubmitReportScreen: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
    
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
