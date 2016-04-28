@@ -29,6 +29,8 @@
 		5B50A1651CD0AED200A33174 /* hazardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B50A1641CD0AED200A33174 /* hazardViewCell.swift */; };
 		5BA8DE7E1CD1F5EC00715F1E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8DE7D1CD1F5EC00715F1E /* MBProgressHUD.m */; };
 		5BA8DE801CD1F79700715F1E /* SignUpDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8DE7F1CD1F79700715F1E /* SignUpDisplay.swift */; };
+		5BA8DE821CD206E200715F1E /* SubmitReportScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8DE811CD206E200715F1E /* SubmitReportScreen.swift */; };
+		5BA8DE841CD24D8D00715F1E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BA8DE831CD24D8D00715F1E /* CoreLocation.framework */; };
 		5BF339E31CD04CC00055CF87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF339E21CD04CC00055CF87 /* AppDelegate.swift */; };
 		5BF339E51CD04CC00055CF87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF339E41CD04CC00055CF87 /* ViewController.swift */; };
 		5BF339E81CD04CC00055CF87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BF339E61CD04CC00055CF87 /* Main.storyboard */; };
@@ -62,6 +64,8 @@
 		5BA8DE7C1CD1F5EC00715F1E /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		5BA8DE7D1CD1F5EC00715F1E /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		5BA8DE7F1CD1F79700715F1E /* SignUpDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpDisplay.swift; sourceTree = "<group>"; };
+		5BA8DE811CD206E200715F1E /* SubmitReportScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitReportScreen.swift; sourceTree = "<group>"; };
+		5BA8DE831CD24D8D00715F1E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5BF339DF1CD04CC00055CF87 /* Cautionizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cautionizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF339E21CD04CC00055CF87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BF339E41CD04CC00055CF87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BA8DE841CD24D8D00715F1E /* CoreLocation.framework in Frameworks */,
 				5B50A1611CD0AB8A00A33174 /* libsqlite3.0.tbd in Frameworks */,
 				5B50A15F1CD0AB7E00A33174 /* libz.tbd in Frameworks */,
 				5B50A15D1CD0AB7200A33174 /* SystemConfiguration.framework in Frameworks */,
@@ -125,6 +130,7 @@
 		5B50A1621CD0AB9400A33174 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5BA8DE831CD24D8D00715F1E /* CoreLocation.framework */,
 				5B50A1601CD0AB8A00A33174 /* libsqlite3.0.tbd */,
 				5B50A15E1CD0AB7E00A33174 /* libz.tbd */,
 				5B50A15C1CD0AB7200A33174 /* SystemConfiguration.framework */,
@@ -171,6 +177,7 @@
 				5BF339E41CD04CC00055CF87 /* ViewController.swift */,
 				5B2FEBF81CD1E6F20010D238 /* LogInDisplay.swift */,
 				5BA8DE7F1CD1F79700715F1E /* SignUpDisplay.swift */,
+				5BA8DE811CD206E200715F1E /* SubmitReportScreen.swift */,
 				5BF339F41CD0841B0055CF87 /* Step2.swift */,
 				5B50A1641CD0AED200A33174 /* hazardViewCell.swift */,
 				5BF339E61CD04CC00055CF87 /* Main.storyboard */,
@@ -307,6 +314,7 @@
 				5B50A1651CD0AED200A33174 /* hazardViewCell.swift in Sources */,
 				5B2FEBF91CD1E6F20010D238 /* LogInDisplay.swift in Sources */,
 				5B2FEBFC1CD1EA860010D238 /* Reachability.swift in Sources */,
+				5BA8DE821CD206E200715F1E /* SubmitReportScreen.swift in Sources */,
 				5BF339E51CD04CC00055CF87 /* ViewController.swift in Sources */,
 				5BF339E31CD04CC00055CF87 /* AppDelegate.swift in Sources */,
 				5BF339F51CD0841B0055CF87 /* Step2.swift in Sources */,
