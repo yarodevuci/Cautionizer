@@ -11,6 +11,8 @@ import Parse
 
 class LogInDisplay: UIViewController, UITextFieldDelegate {
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle { return UIStatusBarStyle.LightContent }
+    
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -104,7 +106,7 @@ class LogInDisplay: UIViewController, UITextFieldDelegate {
                 }})}}
     
     @IBAction func autofillButton(sender: AnyObject) {
-        userNameTextField.text = "test"
+        userNameTextField.text = "lovelyreporter"
         passwordTextField.text = "1"
         self.signInButtonOutlet.userInteractionEnabled = true
         self.signInButtonOutlet.alpha = 1

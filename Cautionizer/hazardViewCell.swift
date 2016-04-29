@@ -12,8 +12,8 @@ class hazardViewCell: UITableViewCell {
     
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var timeStamp: UILabel!
-    @IBOutlet weak var descriptionLabel: UITextView!
     @IBOutlet weak var hazardImage: UIImageView!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     
     

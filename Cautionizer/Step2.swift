@@ -22,6 +22,28 @@ class Step2: UIViewController {
     @IBOutlet weak var sub3: UIButton!
     @IBOutlet weak var sub4: UIButton!
     
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "exteriorPath" {
+            if let destination: SubmitReportScreen = segue.destinationViewController as? SubmitReportScreen {
+                 destination.headerText = "Exterior Blocked Path" }
+            }
+                else if segue.identifier == "interiorBlockedPath" {
+                    if let destination: SubmitReportScreen = segue.destinationViewController as? SubmitReportScreen {
+                destination.headerText = "Interior Blocked Path" }
+        }
+        else if segue.identifier == "contDebris" {
+            if let destination: SubmitReportScreen = segue.destinationViewController as? SubmitReportScreen {
+                destination.headerText = "Construction Debris" }
+        }
+        else if segue.identifier == "animal" {
+            if let destination: SubmitReportScreen = segue.destinationViewController as? SubmitReportScreen {
+                destination.headerText = "Animal-Related" }
+        }
+    }
+    
+    
+    
     var open: Bool = false
     var showimage = false
     

@@ -28,7 +28,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func loadData() {
         
-        hazardInfoArray.removeAll()
         let loadData:PFQuery = PFQuery(className: "Data")
         loadData.orderByDescending("createdAt")
             animateHUD("Loading Reports", detailsLabel: "Please Wait")
@@ -59,6 +58,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
         }
     }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let userCell = hazardListTableView.dequeueReusableCellWithIdentifier("hazardViewCell", forIndexPath: indexPath) as! hazardViewCell
@@ -95,14 +95,31 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         //MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
     }
 
+    @IBAction func reportNewHazard(sender: AnyObject) {
+        let user = PFUser.currentUser()
+        if ((user?.username) == nil) {
+            dispatch_async(dispatch_get_main_queue()) {
+                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                let main: UIViewController = storyBoard.instantiateViewControllerWithIdentifier("LoginDisplay")
+                self.presentViewController(main, animated: true, completion: nil)
+            }
+        }
+        else {
+                dispatch_async(dispatch_get_main_queue()) {
+                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                let main: UIViewController = storyBoard.instantiateViewControllerWithIdentifier("mainMenu")
+                self.presentViewController(main, animated: true, completion: nil)
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.hazardListTableView.addSubview(self.refreshControl)
-       
         loadData()
-          }
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

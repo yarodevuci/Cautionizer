@@ -21,21 +21,23 @@ class SubmitReportScreen: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var descriptionField: UITextView!
     @IBOutlet weak var submitButtonOutlet: UIButton!
     @IBOutlet weak var addImageButton: UIButton!
+    @IBOutlet weak var headerName: UILabel!
     
     var locationManager = CLLocationManager()
+    var headerText = String()
     
     
     @IBAction func addImageButtonAction(sender: AnyObject) {
         let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         
-        let deleteAction = UIAlertAction(title: "Take a Photo", style: .Default, handler: {
+        let deleteAction = UIAlertAction(title: "Camera", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
             self.choosingImageSource(.Camera)
             
         })
-        let saveAction = UIAlertAction(title: "Photo Library", style: .Default, handler: {
+        let saveAction = UIAlertAction(title: "Gallery", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
-            self.choosingImageSource(.SavedPhotosAlbum)
+            self.choosingImageSource(.PhotoLibrary)
             
         })
         
@@ -53,9 +55,7 @@ class SubmitReportScreen: UIViewController, UIImagePickerControllerDelegate, UIN
     func choosingImageSource(source: UIImagePickerControllerSourceType) {
         let myPickerController = UIImagePickerController()
         myPickerController.delegate = self;
-        myPickerController.sourceType = .PhotoLibrary
-      //  myPickerController.sourceType = .Camera
-        
+        myPickerController.sourceType = source
         myPickerController.allowsEditing = false
         self.presentViewController(myPickerController, animated: true, completion: nil)
         view.endEditing(true)
@@ -103,14 +103,13 @@ class SubmitReportScreen: UIViewController, UIImagePickerControllerDelegate, UIN
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        headerName.text = headerText
+        //Location points
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        
-        
-        
+    
         LogInDisplay().makeImageBlur(backgroundImage)
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SubmitReportScreen.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -216,9 +215,13 @@ class SubmitReportScreen: UIViewController, UIImagePickerControllerDelegate, UIN
             addImageButton.userInteractionEnabled = false
             addImageButton.hidden = false
         }
+        let user: PFUser = PFUser.currentUser()!
+        let userIdenty = user.username!
         
-        userReport.setObject("Interior Blocked Path@ " + locationTextField.text!, forKey: "Location")
-        userReport.setObject(convertedDate, forKey: "timeStamp")
+        userReport.setObject(headerText + "@" + locationTextField.text!, forKey: "Location")
+        userReport.setObject(convertedDate + " by #\(userIdenty)", forKey: "timeStamp")
+        userReport.setObject(userIdenty, forKey: "reportedBy")
+        
         userReport.setObject(descriptionField.text!, forKey: "hazardInfo")
         
             animateHUD("Uploading Report", detailsLabel: "Please Wait")
