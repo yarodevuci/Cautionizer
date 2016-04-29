@@ -1,0 +1,13 @@
+PODS:
+  - KMPlaceholderTextView (1.2.0)
+  - TextFieldEffects (1.2.0)
+
+DEPENDENCIES:
+  - KMPlaceholderTextView (~> 1.2.0)
+  - TextFieldEffects
+
+SPEC CHECKSUMS:
+  KMPlaceholderTextView: cae8ee889bd38d20587eee6b2623b8218f31b8f5
+  TextFieldEffects: bc4fd3bd557321bd61a0762f3f50965477a36f62
+
+COCOAPODS: 0.39.0
