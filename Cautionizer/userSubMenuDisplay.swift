@@ -25,6 +25,9 @@ class userSubMenuDisplay: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       // self..backgroundView = UIImageView(image: UIImage(named: "backGround"))
+        
+
         
     }
     @IBAction func subMenuCloseButton(sender: AnyObject) {
@@ -62,6 +65,8 @@ class userSubMenuDisplay: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        
+        cell.textLabel?.textColor = UIColor.whiteColor()
         
         if indexPath.row == 0 {
             cell.textLabel?.text = "My Reports"

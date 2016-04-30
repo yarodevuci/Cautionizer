@@ -230,6 +230,11 @@
 					5BF339DE1CD04CC00055CF87 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = BA563F9L5K;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
