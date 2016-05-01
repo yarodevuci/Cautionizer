@@ -70,34 +70,26 @@ class SubmitReportScreen: UIViewController, UIImagePickerControllerDelegate, UIN
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: { (placemarks, error) -> Void in
-            self.locationManager.stopUpdatingLocation()
-            if error != nil
-            {
-                print("Erorr: " + (error?.localizedDescription)!)
-                return
-            }
-            if placemarks?.count > 0 {
+
+            if error != nil { print("Erorr: " + (error?.localizedDescription)!)
+                return }
+            
+                if placemarks?.count > 0 { let placeMark  = placemarks![0]
                 
-                self.locationManager.stopUpdatingLocation()
-                let placeMark  = placemarks![0]
-                
-                // Street address
-                if let street = placeMark.addressDictionary!["Street"] as? NSString {
-                    if let city = placeMark.addressDictionary!["City"] as? NSString {
-                        let loc: String = ((street as String) + ", " + (city as String))
-                self.locationTextField.text = loc
-                    }
-                }
-        }
-        })
+                        // Street address
+                        if let street = placeMark.addressDictionary!["Street"] as? NSString {
+                            if let city = placeMark.addressDictionary!["City"] as? NSString {
+                            let loc: String = ((street as String) + ", " + (city as String))
+                            self.locationTextField.text = loc } }
+        } })
     }
 
     func displayLocationInfo (placemark: CLPlacemark) {
         self.locationManager.startUpdatingLocation()
-        print(placemark.locality)
-        print(placemark.postalCode)
-        print(placemark.administrativeArea)
-        print(placemark.country)
+//        print(placemark.locality)
+//        print(placemark.postalCode)
+//        print(placemark.administrativeArea)
+//        print(placemark.country)
     }
     
    
@@ -111,22 +103,11 @@ class SubmitReportScreen: UIViewController, UIImagePickerControllerDelegate, UIN
         locationManager.startUpdatingLocation()
     
         LogInDisplay().makeImageBlur(backgroundImage)
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SubmitReportScreen.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SubmitReportScreen.textChangeDescriptionField(_:)), name: UITextViewTextDidChangeNotification, object: nil)
-        
-        //Load picture from parse
-        if(PFUser.currentUser()?.objectForKey("hazard_image") != nil)
-        {
-            let providerLicenseImageFile:PFFile = PFUser.currentUser()?.objectForKey("hazard_image") as! PFFile
-            providerLicenseImageFile.getDataInBackgroundWithBlock({(imageData: NSData?, error: NSError?) -> Void in
-                if(imageData != nil)
-                {
-                    self.hazardImage.image = UIImage(data: imageData!)
-                }
-            })
-        }
     }
     
     //To dismiss keyboard
@@ -148,7 +129,7 @@ class SubmitReportScreen: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     func textViewDidBeginEditing(textView: UITextView) { //Handle the text changes here
         if (textView.tag == 2) {
-            if descriptionField.text == "Write a brief description of hazard..." {
+            if descriptionField.text == "Type a brief description of hazard" {
                 descriptionField.text = ""
             }
             scrollView.setContentOffset(CGPointMake(0, 135), animated: true)
@@ -156,7 +137,7 @@ class SubmitReportScreen: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     func textViewDidEndEditing(textView: UITextView) {
         if descriptionField.text.isEmpty {
-            descriptionField.text = "Write a brief description of hazard..."
+            descriptionField.text = "Type a brief description of hazard"
         }
         scrollView.setContentOffset(CGPointMake(0, 0), animated: true)
     }

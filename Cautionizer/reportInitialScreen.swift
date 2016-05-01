@@ -136,6 +136,19 @@ class reportInitialScreen: UIViewController, userSubMenuDisplayDelegate{
     @IBAction func menuButtonPressed(sender: AnyObject) {
         toogleMenu()
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "securityRisk" {
+            if let destination: SubmitReportScreen = segue.destinationViewController as? SubmitReportScreen {
+                destination.headerText = "Security Risk" }
+        }
+       
+        else if segue.identifier == "other" {
+            if let destination: SubmitReportScreen = segue.destinationViewController as? SubmitReportScreen {
+                destination.headerText = "Other" }
+        }
+    }
+
 
 
 }

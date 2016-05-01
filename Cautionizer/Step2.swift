@@ -16,7 +16,6 @@ class Step2: UIViewController {
     
     @IBOutlet weak var btn1: UIButton!
     @IBOutlet weak var btn2: UIButton!
-    @IBOutlet weak var btn3: UIButton!
     @IBOutlet weak var sub1: UIButton!
     @IBOutlet weak var sub2: UIButton!
     @IBOutlet weak var sub3: UIButton!
@@ -40,6 +39,10 @@ class Step2: UIViewController {
             if let destination: SubmitReportScreen = segue.destinationViewController as? SubmitReportScreen {
                 destination.headerText = "Animal-Related" }
         }
+        else if segue.identifier == "accidents" {
+            if let destination: SubmitReportScreen = segue.destinationViewController as? SubmitReportScreen {
+                destination.headerText = "Accident" }
+        }
     }
     
     
@@ -55,14 +58,11 @@ class Step2: UIViewController {
     
     func moveBTN () {
         btn2.frame.origin = CGPoint(x: 10, y: 430)
-        btn3.frame.origin = CGPoint(x: 10, y: 500)
-        
     }
     
     @IBAction func sub1Clicked(sender: AnyObject) {
         viewWithSubBtns.hidden = true
         btn2.hidden = true
-        btn3.hidden = true
         btn1.hidden = true
     }
     @IBAction func btnClicked(sender: AnyObject) {
@@ -78,14 +78,12 @@ class Step2: UIViewController {
 
             viewWithSubBtns.hidden = true
             btn2.frame.origin = CGPoint(x: 10, y: 200)
-            btn3.frame.origin = CGPoint(x: 10, y: 270)
         }
     }
     @IBAction func btn2Clicked(sender: AnyObject) {
         open = false
         viewWithSubBtns.hidden = true
         btn2.frame.origin = CGPoint(x: 10, y: 200)
-        btn3.frame.origin = CGPoint(x: 10, y: 270)
         
     }
     override func didReceiveMemoryWarning() {
