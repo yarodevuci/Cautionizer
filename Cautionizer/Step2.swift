@@ -21,6 +21,7 @@ class Step2: UIViewController {
     @IBOutlet weak var sub3: UIButton!
     @IBOutlet weak var sub4: UIButton!
     
+    @IBOutlet weak var backGroundImage: UIImageView!
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "exteriorPath" {
@@ -52,12 +53,13 @@ class Step2: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        LogInDisplay().makeImageBlur(backGroundImage)
         
         viewWithSubBtns.hidden = true
     }
     
     func moveBTN () {
-        btn2.frame.origin = CGPoint(x: 10, y: 430)
+        btn2.frame.origin = CGPoint(x: 10, y: 467)
     }
     
     @IBAction func sub1Clicked(sender: AnyObject) {
@@ -77,13 +79,13 @@ class Step2: UIViewController {
             open = false
 
             viewWithSubBtns.hidden = true
-            btn2.frame.origin = CGPoint(x: 10, y: 200)
+            btn2.frame.origin = CGPoint(x: 10, y: 239)
         }
     }
     @IBAction func btn2Clicked(sender: AnyObject) {
         open = false
         viewWithSubBtns.hidden = true
-        btn2.frame.origin = CGPoint(x: 10, y: 200)
+        btn2.frame.origin = CGPoint(x: 10, y: 239)
         
     }
     override func didReceiveMemoryWarning() {

@@ -12,6 +12,8 @@ class reportInitialScreen: UIViewController, userSubMenuDisplayDelegate{
     
     var blackMaskView = UIView(frame: CGRectZero)
     
+    @IBOutlet weak var backGroundImage: UIImageView!
+    
     //View Controller
     let menuViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("userSubMenuDisplay") as! userSubMenuDisplay
     
@@ -35,6 +37,8 @@ class reportInitialScreen: UIViewController, userSubMenuDisplayDelegate{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        LogInDisplay().makeImageBlur(backGroundImage)
+        
         //Swipe Guestures
         let leftSwipe = UISwipeGestureRecognizer(target: self, action:#selector(reportInitialScreen.handleSwipes(_:)))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(reportInitialScreen.handleSwipes(_:)))

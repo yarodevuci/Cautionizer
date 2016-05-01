@@ -23,6 +23,7 @@ class LogInDisplay: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
       makeImageBlur(backgroundImage) //makes image blur
+        
       NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LogInDisplay.textChanged(_:)), name: UITextFieldTextDidChangeNotification, object: nil)
     }
     

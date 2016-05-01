@@ -11,10 +11,12 @@ import Parse
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var backGroundImage: UIImageView!
     var hazardInfoArray = [PFObject]()
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = UIColor.whiteColor() //makes refresh activity indicator white
         refreshControl.addTarget(self, action: #selector(ViewController.handleRefresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         
         return refreshControl
@@ -61,13 +63,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let userCell = hazardListTableView.dequeueReusableCellWithIdentifier("hazardViewCell", forIndexPath: indexPath) as! hazardViewCell
+        let cell = hazardListTableView.dequeueReusableCellWithIdentifier("hazardViewCell", forIndexPath: indexPath) as! hazardViewCell
+        
+        cell.backgroundColor = .clearColor()
+        cell.textLabel?.textColor = UIColor.whiteColor()
+        cell.textLabel?.font = UIFont.boldSystemFontOfSize(22)
+        cell.layoutMargins = UIEdgeInsetsZero //full line separator
         
         let hazardDataObject: PFObject = self.hazardInfoArray[indexPath.row] as PFObject
-        userCell.userLabel?.text  = hazardDataObject.objectForKey("Location") as? String
+        cell.userLabel?.text  = hazardDataObject.objectForKey("Location") as? String
         let timeStamp: String = (hazardDataObject.objectForKey("timeStamp") as? String)!
-        userCell.timeStamp?.text = "Submittted: " + timeStamp
-        userCell.descriptionLabel.text = hazardDataObject.objectForKey("hazardInfo") as? String
+        cell.timeStamp?.text = "Submittted: " + timeStamp
+        cell.descriptionLabel.text = hazardDataObject.objectForKey("hazardInfo") as? String
         
         
         //Load images
@@ -76,11 +83,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             let providerLicenseImageFile: PFFile = hazardDataObject.objectForKey("hazard_image") as! PFFile
             providerLicenseImageFile.getDataInBackgroundWithBlock({(imageData: NSData?, error: NSError?) -> Void in
                 
-                if(imageData != nil) { userCell.hazardImage.image = UIImage(data: imageData!) }
+                if(imageData != nil) { cell.hazardImage.image = UIImage(data: imageData!) }
             })
-        } else { userCell.hazardImage.image = UIImage(named: "no_image") }
+        } else { cell.hazardImage.image = UIImage(named: "no_image") }
         
-           return userCell
+           return cell
     }
     
     func animateHUD (labelText: String, detailsLabel: String) {
@@ -115,7 +122,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        LogInDisplay().makeImageBlur(backGroundImage)
         self.hazardListTableView.addSubview(self.refreshControl)
         loadData()
         
@@ -124,6 +131,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Add a background view to the table view
+        let backgroundImage = UIImage(named: "backGround.png")
+        let imageView = UIImageView(image: backgroundImage)
+        self.hazardListTableView.backgroundView = imageView
+        
+        // no lines where there aren't cells
+        hazardListTableView.tableFooterView = UIView(frame: CGRectZero)
+        
+        // center and scale background image
+        imageView.contentMode = .ScaleAspectFit
+        
+        // blur it
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = imageView.bounds
+        imageView.addSubview(blurView)
     }
 
 
