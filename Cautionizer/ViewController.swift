@@ -87,9 +87,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 if(imageData != nil) {
                     cell.hazardImage.image = UIImage(data: imageData!)
                     cell.hazardImage.setupImageViewerWithDatasource(MHFacebookImageViewerInstance.imageDatasource, onOpen: {
-                        print("open");
+                       // print("open");
                         }, onClose: {
-                            print("close");
+                         //   print("close");
                     })
                 }
             })
