@@ -76,6 +76,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.timeStamp?.text = "Submittted: " + timeStamp
         cell.descriptionLabel.text = hazardDataObject.objectForKey("hazardInfo") as? String
         
+        let MHFacebookImageViewerInstance: MHFacebookImageViewer = MHFacebookImageViewer();
         
         //Load images
         if (hazardDataObject.objectForKey("hazard_image") != nil) {
@@ -83,7 +84,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             let providerLicenseImageFile: PFFile = hazardDataObject.objectForKey("hazard_image") as! PFFile
             providerLicenseImageFile.getDataInBackgroundWithBlock({(imageData: NSData?, error: NSError?) -> Void in
                 
-                if(imageData != nil) { cell.hazardImage.image = UIImage(data: imageData!) }
+                if(imageData != nil) {
+                    cell.hazardImage.image = UIImage(data: imageData!)
+                    cell.hazardImage.setupImageViewerWithDatasource(MHFacebookImageViewerInstance.imageDatasource, onOpen: {
+                        print("open");
+                        }, onClose: {
+                            print("close");
+                    })
+                }
             })
         } else { cell.hazardImage.image = UIImage(named: "no_image") }
         

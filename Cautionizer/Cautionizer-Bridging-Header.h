@@ -3,3 +3,5 @@
 //
 
 #import "MBProgressHUD.h"
+#import "MHFacebookImageViewer.h"
+#import "UIImageView+MHFacebookImageViewer.h"
