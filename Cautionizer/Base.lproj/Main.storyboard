@@ -944,7 +944,7 @@
         <image name="no_image" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="taK-Iv-7sk"/>
         <segue reference="JjD-oO-UNt"/>
+        <segue reference="GM3-RR-yiV"/>
     </inferredMetricsTieBreakers>
 </document>
