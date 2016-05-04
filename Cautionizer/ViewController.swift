@@ -11,6 +11,8 @@ import Parse
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle { return UIStatusBarStyle.LightContent }
+    
     @IBOutlet weak var backGroundImage: UIImageView!
     var hazardInfoArray = [PFObject]()
     
@@ -86,11 +88,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 
                 if(imageData != nil) {
                     cell.hazardImage.image = UIImage(data: imageData!)
-                    cell.hazardImage.setupImageViewerWithDatasource(MHFacebookImageViewerInstance.imageDatasource, onOpen: {
-                       // print("open");
-                        }, onClose: {
-                         //   print("close");
-                    })
+                    cell.hazardImage.setupImageViewerWithDatasource(MHFacebookImageViewerInstance.imageDatasource, onOpen: { },
+                        onClose: { })
                 }
             })
         } else { cell.hazardImage.image = UIImage(named: "no_image") }
