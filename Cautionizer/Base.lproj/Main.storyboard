@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -19,6 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BlurImage" translatesAutoresizingMaskIntoConstraints="NO" id="6E7-66-wHA">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aM6-wk-k0j">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <subviews>
@@ -79,10 +81,6 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="n0i-HM-Hxi"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BlurImage" translatesAutoresizingMaskIntoConstraints="NO" id="d8c-ap-l5I">
-                                <rect key="frame" x="0.0" y="60" width="320" height="66"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZYi-6O-bWC">
                                 <rect key="frame" x="10" y="68" width="300" height="50"/>
                                 <color key="backgroundColor" red="0.12698171981706879" green="0.69905849358974359" blue="0.082927908355202362" alpha="1" colorSpace="calibratedRGB"/>
@@ -99,7 +97,6 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="backGroundImage" destination="d8c-ap-l5I" id="Rjp-eQ-9w1"/>
                         <outlet property="hazardListTableView" destination="a6X-Uy-BJG" id="eVO-HV-bOJ"/>
                     </connections>
                 </viewController>
@@ -273,34 +270,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="BlurImage" translatesAutoresizingMaskIntoConstraints="NO" id="WT8-FE-elc">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BlurImage" translatesAutoresizingMaskIntoConstraints="NO" id="WT8-FE-elc">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="IIb-tw-GUw"/>
-                                    <constraint firstAttribute="width" secondItem="WT8-FE-elc" secondAttribute="height" multiplier="40:71" id="NRW-rB-gl0"/>
-                                    <constraint firstAttribute="height" constant="568" id="sdZ-hV-og6"/>
-                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUh-nz-i8K">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUh-nz-i8K">
                                 <rect key="frame" x="4" y="23" width="36" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="OUh-nz-i8K" secondAttribute="height" multiplier="9:8" id="T0f-xa-0B3"/>
-                                    <constraint firstAttribute="height" constant="32" id="bFH-DK-wHY"/>
-                                    <constraint firstAttribute="width" constant="36" id="bsa-A1-M1c"/>
-                                </constraints>
                                 <state key="normal" image="backWhite"/>
                                 <connections>
                                     <segue destination="UDr-8W-qEh" kind="show" id="25H-9d-ToG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvP-Sm-Qzi">
-                                <rect key="frame" x="10" y="296" width="300" height="50"/>
+                            <button opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvP-Sm-Qzi">
+                                <rect key="frame" x="10" y="299" width="300" height="50"/>
                                 <color key="backgroundColor" red="0.85630726440000005" green="0.2404611847" blue="0.28088408329999998" alpha="0.98659131209999995" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="VCI-hu-tkM"/>
-                                    <constraint firstAttribute="height" constant="50" id="XBz-lJ-ylM"/>
-                                    <constraint firstAttribute="width" secondItem="cvP-Sm-Qzi" secondAttribute="height" multiplier="6:1" id="ixl-hS-iAu"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <state key="normal" title="Sign up!">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -309,14 +291,9 @@
                                     <action selector="signUpButtonAction:" destination="CNf-Lx-DPa" eventType="touchUpInside" id="CDH-EZ-vSw"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2aH-kv-cwL" customClass="KaedeTextField" customModule="TextFieldEffects">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2aH-kv-cwL" customClass="KaedeTextField" customModule="TextFieldEffects">
                                 <rect key="frame" x="10" y="238" width="300" height="55"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="2aH-kv-cwL" secondAttribute="height" multiplier="60:11" id="9UZ-nv-ChT"/>
-                                    <constraint firstAttribute="height" constant="55" id="Cnc-8O-MQa"/>
-                                    <constraint firstAttribute="width" constant="300" id="mbB-eg-7sT"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
@@ -331,14 +308,9 @@
                                     <outlet property="delegate" destination="CNf-Lx-DPa" id="1TN-aq-ocH"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1mF-dF-goM" customClass="KaedeTextField" customModule="TextFieldEffects">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1mF-dF-goM" customClass="KaedeTextField" customModule="TextFieldEffects">
                                 <rect key="frame" x="10" y="181" width="300" height="55"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="Kqd-qB-dw1"/>
-                                    <constraint firstAttribute="width" constant="300" id="LVG-is-D8l"/>
-                                    <constraint firstAttribute="width" secondItem="1mF-dF-goM" secondAttribute="height" multiplier="60:11" id="bKg-E8-kY8"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
@@ -353,14 +325,9 @@
                                     <outlet property="delegate" destination="CNf-Lx-DPa" id="tMZ-sN-Z6A"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hv3-Qv-rdG" customClass="KaedeTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="10" y="66" width="300" height="55"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hv3-Qv-rdG" customClass="KaedeTextField" customModule="TextFieldEffects">
+                                <rect key="frame" x="10" y="67" width="300" height="55"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="EWd-n9-bLn"/>
-                                    <constraint firstAttribute="width" constant="300" id="pmJ-Wz-KHh"/>
-                                    <constraint firstAttribute="width" secondItem="hv3-Qv-rdG" secondAttribute="height" multiplier="60:11" id="vAu-8T-agh"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                 <userDefinedRuntimeAttributes>
@@ -375,14 +342,9 @@
                                     <outlet property="delegate" destination="CNf-Lx-DPa" id="wxp-cQ-yKU"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cdq-gp-33a" customClass="KaedeTextField" customModule="TextFieldEffects">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cdq-gp-33a" customClass="KaedeTextField" customModule="TextFieldEffects">
                                 <rect key="frame" x="10" y="124" width="300" height="55"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="cdq-gp-33a" secondAttribute="height" multiplier="60:11" id="I6l-7a-FKO"/>
-                                    <constraint firstAttribute="width" constant="300" id="RJ5-6H-GpO"/>
-                                    <constraint firstAttribute="height" constant="55" id="lnR-6C-36b"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                 <userDefinedRuntimeAttributes>
@@ -397,37 +359,14 @@
                                     <outlet property="delegate" destination="CNf-Lx-DPa" id="i5D-jg-qYX"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="CAUTIONIZER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fyv-Ex-BEc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CAUTIONIZER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fyv-Ex-BEc">
                                 <rect key="frame" x="67" y="20" width="187" height="38"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="187" id="2ax-vG-s61"/>
-                                    <constraint firstAttribute="height" constant="38" id="SvX-3T-PoP"/>
-                                    <constraint firstAttribute="width" secondItem="Fyv-Ex-BEc" secondAttribute="height" multiplier="187:38" id="Y6A-Rl-YjY"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="OUh-nz-i8K" firstAttribute="leading" secondItem="oGW-f1-9Jq" secondAttribute="leadingMargin" constant="-16" id="3AH-vS-ecx"/>
-                            <constraint firstItem="hv3-Qv-rdG" firstAttribute="leading" secondItem="oGW-f1-9Jq" secondAttribute="leadingMargin" constant="-10" id="61s-hY-b0e"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Fyv-Ex-BEc" secondAttribute="trailing" constant="46" id="8PX-Qt-TlG"/>
-                            <constraint firstItem="1mF-dF-goM" firstAttribute="leading" secondItem="oGW-f1-9Jq" secondAttribute="leadingMargin" constant="-10" id="8Qg-8F-aJm"/>
-                            <constraint firstItem="Fyv-Ex-BEc" firstAttribute="leading" secondItem="OUh-nz-i8K" secondAttribute="trailing" constant="27" id="M1N-Y7-8sT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="WT8-FE-elc" secondAttribute="trailing" constant="-20" id="NMU-lx-v4F"/>
-                            <constraint firstItem="2aH-kv-cwL" firstAttribute="leading" secondItem="oGW-f1-9Jq" secondAttribute="leadingMargin" constant="-10" id="TAL-Tx-d98"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="cdq-gp-33a" secondAttribute="trailing" constant="-10" id="TPN-et-tW8"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="cvP-Sm-Qzi" secondAttribute="trailing" constant="-10" id="Tgs-2K-Sw9"/>
-                            <constraint firstItem="cdq-gp-33a" firstAttribute="leading" secondItem="oGW-f1-9Jq" secondAttribute="leadingMargin" constant="-10" id="dng-x6-eFf"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="2aH-kv-cwL" secondAttribute="trailing" constant="-10" id="ggR-00-m8l"/>
-                            <constraint firstItem="Fyv-Ex-BEc" firstAttribute="leading" secondItem="OUh-nz-i8K" secondAttribute="trailing" constant="27" id="jRh-xZ-gcP"/>
-                            <constraint firstItem="WT8-FE-elc" firstAttribute="leading" secondItem="oGW-f1-9Jq" secondAttribute="leadingMargin" constant="-20" id="pLL-Em-lQC"/>
-                            <constraint firstItem="cvP-Sm-Qzi" firstAttribute="leading" secondItem="oGW-f1-9Jq" secondAttribute="leadingMargin" constant="-10" id="t62-RK-17F"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="1mF-dF-goM" secondAttribute="trailing" constant="-10" id="u21-sR-G9J"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="hv3-Qv-rdG" secondAttribute="trailing" constant="-10" id="yel-SE-V6L"/>
-                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
