@@ -11,6 +11,8 @@ import Parse
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle { return UIStatusBarStyle.LightContent }
+    
     @IBOutlet weak var backGroundImage: UIImageView!
     var hazardInfoArray = [PFObject]()
     
@@ -57,7 +59,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             selectedQuoteFromFavourites.deleteInBackground()
             self.hazardInfoArray.removeAtIndex(indexPath.row)
             self.hazardListTableView.reloadData()
-            
         }
     }
     
@@ -86,11 +87,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 
                 if(imageData != nil) {
                     cell.hazardImage.image = UIImage(data: imageData!)
-                    cell.hazardImage.setupImageViewerWithDatasource(MHFacebookImageViewerInstance.imageDatasource, onOpen: {
-                        print("open");
-                        }, onClose: {
-                            print("close");
-                    })
+                    cell.hazardImage.setupImageViewerWithDatasource(MHFacebookImageViewerInstance.imageDatasource, onOpen: { },
+                        onClose: { })
                 }
             })
         } else { cell.hazardImage.image = UIImage(named: "no_image") }
@@ -155,50 +153,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // center and scale background image
         imageView.contentMode = .ScaleAspectFit
         
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        
-        let topConstraint = NSLayoutConstraint(
-            item: imageView,
-            attribute: NSLayoutAttribute.TopMargin,
-            relatedBy: NSLayoutRelation.Equal,
-            toItem: view,
-            attribute: NSLayoutAttribute.TopMargin,
-            multiplier: 1,
-            constant: 0)
-        let leadingConstraint = NSLayoutConstraint(
-            item: imageView,
-            attribute: NSLayoutAttribute.LeadingMargin,
-            relatedBy: NSLayoutRelation.Equal,
-            toItem: view,
-            attribute: NSLayoutAttribute.LeadingMargin,
-            multiplier: 1,
-            constant: -20)
-        let trailingConstraint = NSLayoutConstraint(
-            item: imageView,
-            attribute: NSLayoutAttribute.TrailingMargin,
-            relatedBy: NSLayoutRelation.Equal,
-            toItem: view,
-            attribute: NSLayoutAttribute.TrailingMargin,
-            multiplier: 1,
-            constant: -20)
-        let bottomConstraint = NSLayoutConstraint(
-            item: imageView,
-            attribute: NSLayoutAttribute.BottomMargin,
-            relatedBy: NSLayoutRelation.Equal,
-            toItem: view,
-            attribute: NSLayoutAttribute.BottomMargin,
-            multiplier: 1,
-            constant: 0)
-        
         // blur it
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = imageView.bounds
-        view.addSubview(imageView)
         imageView.addSubview(blurView)
-        blurView.addConstraints([trailingConstraint, topConstraint, leadingConstraint, bottomConstraint])
- 
     }
 
 

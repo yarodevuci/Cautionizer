@@ -22,6 +22,7 @@ class SubmitReportScreen: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var submitButtonOutlet: UIButton!
     @IBOutlet weak var addImageButton: UIButton!
     @IBOutlet weak var headerName: UILabel!
+    @IBOutlet weak var fakeImageView: UIImageView!
     
     var locationManager = CLLocationManager()
     var headerText = String()
@@ -64,8 +65,10 @@ class SubmitReportScreen: UIViewController, UIImagePickerControllerDelegate, UIN
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
         hazardImage.image = info [UIImagePickerControllerOriginalImage] as? UIImage
+        if hazardImage.image != nil {
+            fakeImageView.hidden = true
+        }
         self.dismissViewControllerAnimated(true, completion: nil)
-        
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

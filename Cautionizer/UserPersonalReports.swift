@@ -1,22 +1,37 @@
 //
-//  reportInitialScreen.swift
+//  UserPersonalReports.swift
 //  Cautionizer
 //
-//  Created by Yaro on 4/28/16.
+//  Created by Yaro on 5/3/16.
 //  Copyright © 2016 Yaro. All rights reserved.
 //
 
 import UIKit
+import Parse
 
-class reportInitialScreen: UIViewController, userSubMenuDisplayDelegate{
+class UserPersonalReports: UIViewController, UITableViewDataSource, UITableViewDelegate, userSubMenuDisplayDelegate {
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle { return UIStatusBarStyle.LightContent }
     var blackMaskView = UIView(frame: CGRectZero)
-    
-    @IBOutlet weak var backGroundImage: UIImageView!
-    
-    //View Controller
+
+    @IBOutlet weak var userReportsTableView: UITableView!
     let menuViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("userSubMenuDisplay") as! userSubMenuDisplay
     
+    var hazardInfoArray = [PFObject]()
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = UIColor.whiteColor() //makes refresh activity indicator white
+        refreshControl.addTarget(self, action: #selector(UserPersonalReports.handleRefresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        
+        return refreshControl
+    }()
+    
+    func handleRefresh(refreshControl: UIRefreshControl) {
+        
+        loadData()
+        refreshControl.endRefreshing()
+    }
     //Constraint (Used animate menu in/out)
     var menuLeftConstraint: NSLayoutConstraint?
     
@@ -35,9 +50,93 @@ class reportInitialScreen: UIViewController, userSubMenuDisplayDelegate{
             }
         }
     }
+    
+
+    func loadData() {
+        let user: String = (PFUser.currentUser()?.username)!
+        
+        let loadData:PFQuery = PFQuery(className: "Data")
+        loadData.whereKey("reportedBy", equalTo: user)
+        loadData.orderByDescending("createdAt")
+        animateHUD("Loading Reports", detailsLabel: "Please Wait")
+        
+        loadData.findObjectsInBackgroundWithBlock { (objects:[PFObject]?, error: NSError?) -> Void in
+            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            if error == nil {
+                if objects?.count == 0 {
+                   JSSAlertView().danger(self, title: "Ooops!", text: "You don't have any reports yet", buttonText:"OK")
+                }
+                self.hazardInfoArray = objects!
+                self.userReportsTableView.reloadData()
+            } else { print("nothing to load") }
+        }
+    }
+
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int { return hazardInfoArray.count }
+    //Users can delete their posts
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)  {
+        
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            
+            let userData:PFObject = hazardInfoArray[indexPath.row] as PFObject
+            userData.deleteInBackground()
+            self.hazardInfoArray.removeAtIndex(indexPath.row)
+            self.userReportsTableView.reloadData()
+        }
+    }
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
+        let cell = userReportsTableView.dequeueReusableCellWithIdentifier("hazardViewCell", forIndexPath: indexPath) as! hazardViewCell
+        
+        cell.backgroundColor = .clearColor()
+        cell.textLabel?.textColor = UIColor.whiteColor()
+        cell.textLabel?.font = UIFont.boldSystemFontOfSize(22)
+        cell.layoutMargins = UIEdgeInsetsZero //full line separator
+        
+        let hazardDataObject: PFObject = self.hazardInfoArray[indexPath.row] as PFObject
+        cell.userLabel?.text  = hazardDataObject.objectForKey("Location") as? String
+        let timeStamp: String = (hazardDataObject.objectForKey("timeStamp") as? String)!
+        cell.timeStamp?.text = "Submittted: " + timeStamp
+        cell.descriptionLabel.text = hazardDataObject.objectForKey("hazardInfo") as? String
+        
+        let MHFacebookImageViewerInstance: MHFacebookImageViewer = MHFacebookImageViewer();
+        
+        //Load images
+        if (hazardDataObject.objectForKey("hazard_image") != nil) {
+            
+            let providerLicenseImageFile: PFFile = hazardDataObject.objectForKey("hazard_image") as! PFFile
+            providerLicenseImageFile.getDataInBackgroundWithBlock({(imageData: NSData?, error: NSError?) -> Void in
+                
+                if(imageData != nil) {
+                    cell.hazardImage.image = UIImage(data: imageData!)
+                    cell.hazardImage.setupImageViewerWithDatasource(MHFacebookImageViewerInstance.imageDatasource, onOpen: { },
+                        onClose: { })
+                }
+            })
+        } else { cell.hazardImage.image = UIImage(named: "no_image") }
+        
+        return cell
+    }
+    
+    func animateHUD (labelText: String, detailsLabel: String) {
+        let spinAct = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        
+        spinAct.activityIndicatorColor = UIColor.whiteColor()
+        spinAct.label.text = labelText
+        spinAct.detailsLabel.textColor = UIColor.whiteColor()
+        spinAct.detailsLabel.text = detailsLabel
+        spinAct.label.textColor = UIColor.whiteColor()
+        spinAct.bezelView.color = UIColor.blackColor()
+        //MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        LogInDisplay().makeImageBlur(backGroundImage)
+        
+        self.userReportsTableView.addSubview(self.refreshControl)
+        loadData()
         
         //Swipe Guestures
         let leftSwipe = UISwipeGestureRecognizer(target: self, action:#selector(reportInitialScreen.handleSwipes(_:)))
@@ -47,7 +146,6 @@ class reportInitialScreen: UIViewController, userSubMenuDisplayDelegate{
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
         
-        //Add menu view controller
         addChildViewController(menuViewController)
         menuViewController.delegate = self
         menuViewController.didMoveToParentViewController(self)
@@ -131,29 +229,40 @@ class reportInitialScreen: UIViewController, userSubMenuDisplayDelegate{
         }
     }
     
+    @IBAction func subMenuPressed(sender: AnyObject) {
+        toogleMenu()
+    }
+    
     func tapGestureRecognized() {
         toogleMenu()
     }
     func menuCloseButtonTapped() {
         toogleMenu()
     }
-    @IBAction func menuButtonPressed(sender: AnyObject) {
-        toogleMenu()
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Add a background view to the table view
+        let backgroundImage = UIImage(named: "backGround.png")
+        let imageView = UIImageView(image: backgroundImage)
+        self.userReportsTableView.backgroundView = imageView
+        
+        // no lines where there aren't cells
+        userReportsTableView.tableFooterView = UIView(frame: CGRectZero)
+        
+        // center and scale background image
+        imageView.contentMode = .ScaleAspectFit
+        
+        // blur it
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = imageView.bounds
+        imageView.addSubview(blurView)
     }
     
-    //send data to report screen viewController
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "securityRisk" {
-            if let destination: SubmitReportScreen = segue.destinationViewController as? SubmitReportScreen {
-                destination.headerText = "Security Risk" }
-        }
-       
-        else if segue.identifier == "other" {
-            if let destination: SubmitReportScreen = segue.destinationViewController as? SubmitReportScreen {
-                destination.headerText = "Other" }
-        }
-    }
-
-
-
 }
