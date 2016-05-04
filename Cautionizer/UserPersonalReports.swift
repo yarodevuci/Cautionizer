@@ -63,7 +63,9 @@ class UserPersonalReports: UIViewController, UITableViewDataSource, UITableViewD
         loadData.findObjectsInBackgroundWithBlock { (objects:[PFObject]?, error: NSError?) -> Void in
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             if error == nil {
-                
+                if objects?.count == 0 {
+                   JSSAlertView().danger(self, title: "Ooops!", text: "You don't have any reports yet", buttonText:"OK")
+                }
                 self.hazardInfoArray = objects!
                 self.userReportsTableView.reloadData()
             } else { print("nothing to load") }
