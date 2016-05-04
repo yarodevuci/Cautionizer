@@ -83,7 +83,8 @@ class SubmitReportScreen: UIViewController, UIImagePickerControllerDelegate, UIN
                         if let street = placeMark.addressDictionary!["Street"] as? NSString {
                             if let city = placeMark.addressDictionary!["City"] as? NSString {
                             let loc: String = ((street as String) + ", " + (city as String))
-                            self.locationTextField.text = loc } }
+                            self.locationTextField.text = loc
+                            self.locationManager.stopUpdatingLocation() } }
         } })
     }
 
