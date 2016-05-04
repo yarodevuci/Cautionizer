@@ -76,6 +76,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.timeStamp?.text = "Submittted: " + timeStamp
         cell.descriptionLabel.text = hazardDataObject.objectForKey("hazardInfo") as? String
         
+        let MHFacebookImageViewerInstance: MHFacebookImageViewer = MHFacebookImageViewer();
         
         //Load images
         if (hazardDataObject.objectForKey("hazard_image") != nil) {
@@ -83,7 +84,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             let providerLicenseImageFile: PFFile = hazardDataObject.objectForKey("hazard_image") as! PFFile
             providerLicenseImageFile.getDataInBackgroundWithBlock({(imageData: NSData?, error: NSError?) -> Void in
                 
-                if(imageData != nil) { cell.hazardImage.image = UIImage(data: imageData!) }
+                if(imageData != nil) {
+                    cell.hazardImage.image = UIImage(data: imageData!)
+                    cell.hazardImage.setupImageViewerWithDatasource(MHFacebookImageViewerInstance.imageDatasource, onOpen: {
+                        print("open");
+                        }, onClose: {
+                            print("close");
+                    })
+                }
             })
         } else { cell.hazardImage.image = UIImage(named: "no_image") }
         
@@ -136,21 +144,61 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewWillAppear(animated)
         
         // Add a background view to the table view
+        
         let backgroundImage = UIImage(named: "backGround.png")
         let imageView = UIImageView(image: backgroundImage)
         self.hazardListTableView.backgroundView = imageView
-        
+ 
         // no lines where there aren't cells
         hazardListTableView.tableFooterView = UIView(frame: CGRectZero)
         
         // center and scale background image
         imageView.contentMode = .ScaleAspectFit
         
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        let topConstraint = NSLayoutConstraint(
+            item: imageView,
+            attribute: NSLayoutAttribute.TopMargin,
+            relatedBy: NSLayoutRelation.Equal,
+            toItem: view,
+            attribute: NSLayoutAttribute.TopMargin,
+            multiplier: 1,
+            constant: 0)
+        let leadingConstraint = NSLayoutConstraint(
+            item: imageView,
+            attribute: NSLayoutAttribute.LeadingMargin,
+            relatedBy: NSLayoutRelation.Equal,
+            toItem: view,
+            attribute: NSLayoutAttribute.LeadingMargin,
+            multiplier: 1,
+            constant: -20)
+        let trailingConstraint = NSLayoutConstraint(
+            item: imageView,
+            attribute: NSLayoutAttribute.TrailingMargin,
+            relatedBy: NSLayoutRelation.Equal,
+            toItem: view,
+            attribute: NSLayoutAttribute.TrailingMargin,
+            multiplier: 1,
+            constant: -20)
+        let bottomConstraint = NSLayoutConstraint(
+            item: imageView,
+            attribute: NSLayoutAttribute.BottomMargin,
+            relatedBy: NSLayoutRelation.Equal,
+            toItem: view,
+            attribute: NSLayoutAttribute.BottomMargin,
+            multiplier: 1,
+            constant: 0)
+        
         // blur it
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = imageView.bounds
+        view.addSubview(imageView)
         imageView.addSubview(blurView)
+        blurView.addConstraints([trailingConstraint, topConstraint, leadingConstraint, bottomConstraint])
+ 
     }
 
 
