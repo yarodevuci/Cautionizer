@@ -47,10 +47,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     @IBOutlet weak var hazardListTableView: UITableView!
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        return hazardInfoArray.count
-    }
+   
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int { return hazardInfoArray.count }
+    
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)  {
         
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
@@ -59,7 +58,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             selectedQuoteFromFavourites.deleteInBackground()
             self.hazardInfoArray.removeAtIndex(indexPath.row)
             self.hazardListTableView.reloadData()
-            
         }
     }
     

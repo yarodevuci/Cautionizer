@@ -62,7 +62,7 @@ class userSubMenuDisplay: UIViewController, UITableViewDataSource, UITableViewDe
         let index = indexPath.row
         switch (index) {
         case 1:
-            goToAnotherScreen("")
+            goToAnotherScreen("myReports")
         case 0:
             goToAnotherScreen("reportList")
         case 2:

@@ -33,6 +33,7 @@
 		5BA8DE801CD1F79700715F1E /* SignUpDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8DE7F1CD1F79700715F1E /* SignUpDisplay.swift */; };
 		5BA8DE821CD206E200715F1E /* SubmitReportScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8DE811CD206E200715F1E /* SubmitReportScreen.swift */; };
 		5BA8DE841CD24D8D00715F1E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BA8DE831CD24D8D00715F1E /* CoreLocation.framework */; };
+		5BB299791CD9AC6900082186 /* UserPersonalReports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB299781CD9AC6900082186 /* UserPersonalReports.swift */; };
 		5BF339E31CD04CC00055CF87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF339E21CD04CC00055CF87 /* AppDelegate.swift */; };
 		5BF339E51CD04CC00055CF87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF339E41CD04CC00055CF87 /* ViewController.swift */; };
 		5BF339E81CD04CC00055CF87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BF339E61CD04CC00055CF87 /* Main.storyboard */; };
@@ -81,6 +82,7 @@
 		5BA8DE7F1CD1F79700715F1E /* SignUpDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpDisplay.swift; sourceTree = "<group>"; };
 		5BA8DE811CD206E200715F1E /* SubmitReportScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitReportScreen.swift; sourceTree = "<group>"; };
 		5BA8DE831CD24D8D00715F1E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		5BB299781CD9AC6900082186 /* UserPersonalReports.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPersonalReports.swift; sourceTree = "<group>"; };
 		5BF339DF1CD04CC00055CF87 /* Cautionizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cautionizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF339E21CD04CC00055CF87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BF339E41CD04CC00055CF87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 			children = (
 				5B2FEBFA1CD1EA5E0010D238 /* ExtraDesignClasses */,
 				5BF339E21CD04CC00055CF87 /* AppDelegate.swift */,
+				5BB299781CD9AC6900082186 /* UserPersonalReports.swift */,
 				5BF339E41CD04CC00055CF87 /* ViewController.swift */,
 				5B2FEBF81CD1E6F20010D238 /* LogInDisplay.swift */,
 				5BA8DE7F1CD1F79700715F1E /* SignUpDisplay.swift */,
@@ -385,6 +388,7 @@
 				5BA8DE821CD206E200715F1E /* SubmitReportScreen.swift in Sources */,
 				5BF339E51CD04CC00055CF87 /* ViewController.swift in Sources */,
 				C14AD9141CD91D6B00BD8361 /* UIImageView+AFNetworking.m in Sources */,
+				5BB299791CD9AC6900082186 /* UserPersonalReports.swift in Sources */,
 				C14AD9101CD91D6B00BD8361 /* UIImageView+MHFacebookImageViewer.m in Sources */,
 				C14AD90B1CD91D6B00BD8361 /* AFHTTPClient.m in Sources */,
 				C14AD9121CD91D6B00BD8361 /* AFURLConnectionOperation.m in Sources */,

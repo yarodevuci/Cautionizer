@@ -935,6 +935,99 @@
             </objects>
             <point key="canvasLocation" x="1385" y="305"/>
         </scene>
+        <!--User Personal Reports-->
+        <scene sceneID="dep-g5-7nD">
+            <objects>
+                <viewController storyboardIdentifier="myReports" id="aQW-w2-0Lc" customClass="UserPersonalReports" customModule="Cautionizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uZu-7d-E6u"/>
+                        <viewControllerLayoutGuide type="bottom" id="IUY-yo-BrZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9ms-7l-O1J">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="geC-3v-3xF">
+                                <rect key="frame" x="0.0" y="-8" width="320" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZ1-0K-nLI">
+                                        <rect key="frame" x="8" y="28" width="25" height="25"/>
+                                        <state key="normal" image="menu"/>
+                                        <connections>
+                                            <action selector="subMenuButtonClosed:" destination="SMH-qM-ajz" eventType="touchUpInside" id="ys1-xT-SYf"/>
+                                            <action selector="subMenuCloseButton:" destination="SMH-qM-ajz" eventType="touchUpInside" id="NX1-CQ-hYq"/>
+                                            <action selector="subMenuPressed:" destination="aQW-w2-0Lc" eventType="touchUpInside" id="2io-oZ-wrf"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Reports" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7Z-O7-Dvx">
+                                        <rect key="frame" x="67" y="22" width="187" height="38"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.19620338179999999" green="0.6106528604" blue="0.91296073720000004" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="130" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YiO-N8-ZQQ">
+                                <rect key="frame" x="0.0" y="52" width="320" height="516"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="hazardViewCell" rowHeight="130" id="iX8-sS-ByO" customClass="hazardViewCell" customModule="Cautionizer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="130"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iX8-sS-ByO" id="pgC-mA-6OE">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="129"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Interior Blocked Path@ Engineering Ct, Irvine" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="4" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="StR-Nk-Zgz">
+                                                    <rect key="frame" x="105" y="0.0" width="207" height="65"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="no_image" translatesAutoresizingMaskIntoConstraints="NO" id="nrY-cR-Sp0">
+                                                    <rect key="frame" x="8" y="8" width="89" height="74"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Submitted: 04-28-16, 11:28AM by #testffd" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ywM-3A-DSN">
+                                                    <rect key="frame" x="105" y="55" width="212" height="38"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.3577087316" green="0.920131959" blue="0.97493990389999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description Info goes here" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="qVX-PX-p5G">
+                                                    <rect key="frame" x="8" y="90" width="304" height="38"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" red="0.3141694807" green="0.88301701570000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="qVX-PX-p5G" id="Wca-El-Bt3"/>
+                                            <outlet property="hazardImage" destination="nrY-cR-Sp0" id="t06-pv-yiu"/>
+                                            <outlet property="timeStamp" destination="ywM-3A-DSN" id="Wds-dU-jym"/>
+                                            <outlet property="userLabel" destination="StR-Nk-Zgz" id="Pnt-n1-hAD"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="aQW-w2-0Lc" id="Efj-cM-rVn"/>
+                                    <outlet property="delegate" destination="aQW-w2-0Lc" id="Q0v-ur-dyE"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="userReportsTableView" destination="YiO-N8-ZQQ" id="5J2-vg-zL0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KZL-lS-Oo1" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1220" y="348"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Picempty" width="873" height="704"/>
