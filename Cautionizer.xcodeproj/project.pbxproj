@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0EB6F485A865BDE52508B297 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BE20443EC4F6ACAB882B51 /* Pods.framework */; };
-		5B25470D1CDA98F700E2B10D /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B25470C1CDA98F700E2B10D /* test.swift */; };
 		5B2FEBF91CD1E6F20010D238 /* LogInDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2FEBF81CD1E6F20010D238 /* LogInDisplay.swift */; };
 		5B2FEBFC1CD1EA860010D238 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2FEBFB1CD1EA860010D238 /* Reachability.swift */; };
 		5B2FEBFE1CD1EB470010D238 /* JSSAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2FEBFD1CD1EB470010D238 /* JSSAlertView.swift */; };
@@ -56,7 +55,6 @@
 
 /* Begin PBXFileReference section */
 		329538EDAE48C3CC701015DC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		5B25470C1CDA98F700E2B10D /* test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		5B2FEBF81CD1E6F20010D238 /* LogInDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInDisplay.swift; sourceTree = "<group>"; };
 		5B2FEBFB1CD1EA860010D238 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		5B2FEBFD1CD1EB470010D238 /* JSSAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSSAlertView.swift; sourceTree = "<group>"; };
@@ -244,7 +242,6 @@
 				5B2FEBF81CD1E6F20010D238 /* LogInDisplay.swift */,
 				5BA8DE7F1CD1F79700715F1E /* SignUpDisplay.swift */,
 				5B8BAA061CD2F9FC00BB460C /* reportInitialScreen.swift */,
-				5B25470C1CDA98F700E2B10D /* test.swift */,
 				5B8BAA041CD2F81700BB460C /* userSubMenuDisplay.swift */,
 				5BF339F41CD0841B0055CF87 /* Step2.swift */,
 				5B50A1641CD0AED200A33174 /* hazardViewCell.swift */,
@@ -403,7 +400,6 @@
 				C14AD90A1CD91D6B00BD8361 /* AFImageRequestOperation.m in Sources */,
 				5BA8DE7E1CD1F5EC00715F1E /* MBProgressHUD.m in Sources */,
 				C14AD90C1CD91D6B00BD8361 /* AFHTTPRequestOperation.m in Sources */,
-				5B25470D1CDA98F700E2B10D /* test.swift in Sources */,
 				C14AD9131CD91D6B00BD8361 /* AFXMLRequestOperation.m in Sources */,
 				C14AD90F1CD91D6B00BD8361 /* MHFacebookImageViewer.m in Sources */,
 				5B8BAA071CD2F9FC00BB460C /* reportInitialScreen.swift in Sources */,

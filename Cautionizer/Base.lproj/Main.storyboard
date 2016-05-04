@@ -639,33 +639,6 @@
             </objects>
             <point key="canvasLocation" x="544" y="348"/>
         </scene>
-        <!--Test-->
-        <scene sceneID="V29-4f-i3S">
-            <objects>
-                <viewController wantsFullScreenLayout="YES" id="4Um-9W-M0u" customClass="test" customModule="Cautionizer" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Z9U-4U-P4I"/>
-                        <viewControllerLayoutGuide type="bottom" id="Uoh-JK-Bq8"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="LUa-Hd-NKc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backGround" translatesAutoresizingMaskIntoConstraints="NO" id="tNG-Ht-ttX">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="imageBack" destination="tNG-Ht-ttX" id="63J-Yf-bSD"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Kgv-lG-Wcb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1004.5" y="-386.5"/>
-        </scene>
         <!--Step2-->
         <scene sceneID="wcq-LK-nqq">
             <objects>
@@ -780,13 +753,6 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2JM-Gp-wgv">
-                                <rect key="frame" x="254" y="69" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="4Um-9W-M0u" kind="show" id="Tqv-kz-40D"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1066,7 +1032,6 @@
     </scenes>
     <resources>
         <image name="BlurImage" width="187" height="333"/>
-        <image name="backGround" width="577" height="1024"/>
         <image name="backWhite" width="32" height="32"/>
         <image name="menu" width="32" height="32"/>
         <image name="no_image" width="128" height="128"/>
