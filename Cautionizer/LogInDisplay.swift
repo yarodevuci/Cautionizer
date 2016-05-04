@@ -21,9 +21,7 @@ class LogInDisplay: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-      makeImageBlur(backgroundImage) //makes image blur
-        
+                
       NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LogInDisplay.textChanged(_:)), name: UITextFieldTextDidChangeNotification, object: nil)
     }
     
@@ -115,14 +113,6 @@ class LogInDisplay: UIViewController, UITextFieldDelegate {
     
     @IBAction func signInButton(sender: AnyObject) {
         signUserIn()
-    }
-    
-    func makeImageBlur (image: UIImageView) {
-        let darkBlur = UIBlurEffect(style: UIBlurEffectStyle.Dark)
-        let blurView = UIVisualEffectView(effect: darkBlur)
-        blurView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        blurView.frame = image.bounds
-        image.insertSubview(blurView, atIndex: 0)
     }
 
     //To dismiss keyboard

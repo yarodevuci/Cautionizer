@@ -127,10 +127,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        LogInDisplay().makeImageBlur(backGroundImage)
         self.hazardListTableView.addSubview(self.refreshControl)
         loadData()
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -140,24 +138,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Add a background view to the table view
-        let backgroundImage = UIImage(named: "backGround.png")
-        let imageView = UIImageView(image: backgroundImage)
-        self.hazardListTableView.backgroundView = imageView
+        let width = UIScreen.mainScreen().bounds.size.width
+        let height = UIScreen.mainScreen().bounds.size.height
+        
+        let imageViewBackground = UIImageView(frame: CGRectMake(0, 0, width, height))
+        imageViewBackground.image = UIImage(named: "BlurImage.png")
+        
+        // you can change the content mode:
+        imageViewBackground.contentMode = UIViewContentMode.ScaleAspectFill
+        
+        self.hazardListTableView.backgroundView = imageViewBackground
         
         // no lines where there aren't cells
         hazardListTableView.tableFooterView = UIView(frame: CGRectZero)
-        
-        // center and scale background image
-        imageView.contentMode = .ScaleAspectFit
-        
-        // blur it
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
-        let blurView = UIVisualEffectView(effect: blurEffect)
-        blurView.frame = imageView.bounds
-        imageView.addSubview(blurView)
     }
-
-
 }
 

@@ -52,9 +52,7 @@ class Step2: UIViewController {
     var showimage = false
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        LogInDisplay().makeImageBlur(backGroundImage)
-        
+        super.viewDidLoad()        
         viewWithSubBtns.hidden = true
     }
     

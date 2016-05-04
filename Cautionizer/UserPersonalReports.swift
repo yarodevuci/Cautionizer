@@ -248,7 +248,7 @@ class UserPersonalReports: UIViewController, UITableViewDataSource, UITableViewD
         super.viewWillAppear(animated)
         
         // Add a background view to the table view
-        let backgroundImage = UIImage(named: "backGround.png")
+        let backgroundImage = UIImage(named: "BlurImage.png")
         let imageView = UIImageView(image: backgroundImage)
         self.userReportsTableView.backgroundView = imageView
         
@@ -257,12 +257,6 @@ class UserPersonalReports: UIViewController, UITableViewDataSource, UITableViewD
         
         // center and scale background image
         imageView.contentMode = .ScaleAspectFit
-        
-        // blur it
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
-        let blurView = UIVisualEffectView(effect: blurEffect)
-        blurView.frame = imageView.bounds
-        imageView.addSubview(blurView)
     }
     
 }

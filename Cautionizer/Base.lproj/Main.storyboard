@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -79,7 +79,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="n0i-HM-Hxi"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d8c-ap-l5I">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BlurImage" translatesAutoresizingMaskIntoConstraints="NO" id="d8c-ap-l5I">
                                 <rect key="frame" x="0.0" y="60" width="320" height="66"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
@@ -119,7 +119,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backGround" translatesAutoresizingMaskIntoConstraints="NO" id="Owh-vi-VGE">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlurImage" translatesAutoresizingMaskIntoConstraints="NO" id="Owh-vi-VGE">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CAUTIONIZER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I25-8L-tSS">
@@ -273,7 +273,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="backGround" translatesAutoresizingMaskIntoConstraints="NO" id="WT8-FE-elc">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="BlurImage" translatesAutoresizingMaskIntoConstraints="NO" id="WT8-FE-elc">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="IIb-tw-GUw"/>
@@ -545,7 +545,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backGround" translatesAutoresizingMaskIntoConstraints="NO" id="wel-sE-Pgm" userLabel="backGround">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BlurImage" translatesAutoresizingMaskIntoConstraints="NO" id="wel-sE-Pgm" userLabel="backGround">
                                 <rect key="frame" x="0.0" y="61" width="320" height="507"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iZH-xa-Poq">
@@ -639,6 +639,33 @@
             </objects>
             <point key="canvasLocation" x="544" y="348"/>
         </scene>
+        <!--Test-->
+        <scene sceneID="V29-4f-i3S">
+            <objects>
+                <viewController wantsFullScreenLayout="YES" id="4Um-9W-M0u" customClass="test" customModule="Cautionizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z9U-4U-P4I"/>
+                        <viewControllerLayoutGuide type="bottom" id="Uoh-JK-Bq8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LUa-Hd-NKc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backGround" translatesAutoresizingMaskIntoConstraints="NO" id="tNG-Ht-ttX">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="imageBack" destination="tNG-Ht-ttX" id="63J-Yf-bSD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kgv-lG-Wcb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1004.5" y="-386.5"/>
+        </scene>
         <!--Step2-->
         <scene sceneID="wcq-LK-nqq">
             <objects>
@@ -670,7 +697,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.80983573720512814" green="0.45825163275754238" blue="0.14132366352192008" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backGround" translatesAutoresizingMaskIntoConstraints="NO" id="Maw-8I-izf">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BlurImage" translatesAutoresizingMaskIntoConstraints="NO" id="Maw-8I-izf">
                                 <rect key="frame" x="0.0" y="61" width="320" height="507"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose one of the  following" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDR-kV-cNC">
@@ -753,6 +780,13 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2JM-Gp-wgv">
+                                <rect key="frame" x="254" y="69" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="4Um-9W-M0u" kind="show" id="Tqv-kz-40D"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -784,7 +818,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backGround" translatesAutoresizingMaskIntoConstraints="NO" id="KUh-HG-a0l">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlurImage" translatesAutoresizingMaskIntoConstraints="NO" id="KUh-HG-a0l">
                                 <rect key="frame" x="0.0" y="60" width="320" height="508"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rji-Ge-A07">
@@ -1031,6 +1065,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="BlurImage" width="187" height="333"/>
         <image name="backGround" width="577" height="1024"/>
         <image name="backWhite" width="32" height="32"/>
         <image name="menu" width="32" height="32"/>
@@ -1038,7 +1073,7 @@
         <image name="upload Image" width="105" height="105"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JjD-oO-UNt"/>
-        <segue reference="GM3-RR-yiV"/>
+        <segue reference="9tu-C1-5a9"/>
+        <segue reference="taK-Iv-7sk"/>
     </inferredMetricsTieBreakers>
 </document>

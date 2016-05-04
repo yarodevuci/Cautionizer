@@ -37,7 +37,6 @@ class reportInitialScreen: UIViewController, userSubMenuDisplayDelegate{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        LogInDisplay().makeImageBlur(backGroundImage)
         
         //Swipe Guestures
         let leftSwipe = UISwipeGestureRecognizer(target: self, action:#selector(reportInitialScreen.handleSwipes(_:)))
