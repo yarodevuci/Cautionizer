@@ -104,9 +104,7 @@ class SubmitReportScreen: UIViewController, UIImagePickerControllerDelegate, UIN
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-    
-        LogInDisplay().makeImageBlur(backgroundImage)
-        
+            
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SubmitReportScreen.dismissKeyboard))
         view.addGestureRecognizer(tap)
         

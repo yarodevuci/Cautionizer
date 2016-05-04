@@ -22,7 +22,6 @@ class SignUpDisplay: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        LogInDisplay().makeImageBlur(backgroundImage) //call function from login screen to make background blur
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SignUpDisplay.dismissKeyboard))
         view.addGestureRecognizer(tap)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SignUpDisplay.textChanged(_:)), name: UITextFieldTextDidChangeNotification, object: nil)

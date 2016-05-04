@@ -237,8 +237,8 @@
 			children = (
 				5B2FEBFA1CD1EA5E0010D238 /* ExtraDesignClasses */,
 				5BF339E21CD04CC00055CF87 /* AppDelegate.swift */,
-				5BB299781CD9AC6900082186 /* UserPersonalReports.swift */,
 				5BF339E41CD04CC00055CF87 /* ViewController.swift */,
+				5BB299781CD9AC6900082186 /* UserPersonalReports.swift */,
 				5B2FEBF81CD1E6F20010D238 /* LogInDisplay.swift */,
 				5BA8DE7F1CD1F79700715F1E /* SignUpDisplay.swift */,
 				5BA8DE811CD206E200715F1E /* SubmitReportScreen.swift */,
