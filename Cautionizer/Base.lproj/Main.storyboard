@@ -70,6 +70,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interior Blocked Path@ Engineering Ct, Irvine" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="4" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Atf-gY-KAq">
+                                                    <rect key="frame" x="105" y="0.0" width="207" height="65"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="65" id="18B-IG-Axq"/>
+                                                        <constraint firstAttribute="width" constant="207" id="f8R-tK-doC"/>
+                                                        <constraint firstAttribute="width" secondItem="Atf-gY-KAq" secondAttribute="height" multiplier="207:65" id="xwt-Pe-6mk"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image" translatesAutoresizingMaskIntoConstraints="NO" id="9OE-zO-uQo">
                                                     <rect key="frame" x="8" y="8" width="89" height="74"/>
                                                     <constraints>
@@ -145,6 +156,29 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="n0i-HM-Hxi"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZYi-6O-bWC">
+                                <rect key="frame" x="10" y="68" width="300" height="50"/>
+                                <color key="backgroundColor" red="0.12698171981706879" green="0.69905849358974359" blue="0.082927908355202362" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
+                                <state key="normal" title="SUBMIT NEW CAUTION">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="reportNewHazard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sWI-Jd-nYI"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aM6-wk-k0j">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CAUTIONIZER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ueV-OC-eZs">
+                                        <rect key="frame" x="67" y="20" width="187" height="38"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.19620338182471067" green="0.6106528604443483" blue="0.91296073720769233" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -469,6 +503,15 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CER-dM-Rmc">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="61"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CAUTIONIZER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3KG-rx-A8b">
+                                        <rect key="frame" x="46" y="20" width="149" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="149" id="ONI-oa-0e7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="21"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3L-5X-BQW">
                                         <rect key="frame" x="8" y="26" width="25" height="25"/>
                                         <constraints>
@@ -1029,6 +1072,19 @@
                                             <outlet property="delegate" destination="7eX-8d-37g" id="mm6-fI-c0R"/>
                                         </connections>
                                     </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" text="Type a brief description of hazard" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Sj0-yS-idx">
+                                        <rect key="frame" x="10" y="264" width="300" height="99"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="99" id="eTQ-gr-F1J"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="yes" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="7eX-8d-37g" id="fC1-9F-QRH"/>
+                                        </connections>
+                                    </textView>
                                     <button opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2RE-1Q-kdr">
                                         <rect key="frame" x="10" y="371" width="300" height="52"/>
                                         <color key="backgroundColor" red="0.27120193707714618" green="0.76370611826410251" blue="0.25503491014722479" alpha="1" colorSpace="calibratedRGB"/>
@@ -1367,5 +1423,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="GM3-RR-yiV"/>
         <segue reference="JjD-oO-UNt"/>
+        <segue reference="obZ-ir-sTi"/>
     </inferredMetricsTieBreakers>
 </document>
